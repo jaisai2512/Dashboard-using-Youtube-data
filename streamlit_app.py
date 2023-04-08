@@ -13,34 +13,16 @@ user_input = st.sidebar.text_input("Enter the channel code:")
 
 
 if user_input:
-  def get_channel_id(youtube,api_key, channel_name):
-    try:
-        request = youtube.channels().list(
-            part="id",
-            forUsername=channel_name
-        )
-        response = request.execute()
-        if response['items']:
-            channel_id = response['items'][0]['id']
-            return channel_id
-        else:
-            print("Channel not found")
-            return None
 
-    # Handle any errors that may occur
-    except googleapiclient.errors.HttpError as error:
-        print(f"An error occurred: {error}")
-        return None
-  
   api_key ="AIzaSyA8gdudsfXk1YcEDS42CyeSiD7zXA1KWhI"
   youtube = build('youtube','v3',developerKey=api_key)
-  channel_id=get_channel_id(youtube,api_key,user_input)
+  
   
   def get_channel_stats(youtube,channel_id):
     request = youtube.channels().list(part="snippet,contentDetails,statistics",id=channel_id)
     response = request.execute()
     return response
-  data=get_channel_stats(youtube,channel_id)
+  data=get_channel_stats(youtube,user_input)
   data_dict=[]
   for i in data['items']:
     data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'],viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads']))
