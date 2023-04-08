@@ -1,3 +1,5 @@
 streamlit
 pandas
 plost
+plotly-express
+googleapiclient.discovery
