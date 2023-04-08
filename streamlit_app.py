@@ -25,9 +25,7 @@ if user_input:
   for i in data['items']:
     data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'],viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads']))
   df=pd.DataFrame(data_dict)
-  playlistId=df.iloc[0:,[0,5]].loc[df['Channel_Name']=='MrBeast','uploads']
-  playlistId=playlistId.reset_index()
-  playlistId=playlistId.iloc[0,1]
+  playlistId=df.iloc[0,1]
 
   def get_video_id(youtube,playlistId):
     request = youtube.playlistItems().list(part="contentDetails",playlistId=playlistId,maxResults=50)
