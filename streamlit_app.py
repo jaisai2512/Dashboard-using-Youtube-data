@@ -84,7 +84,7 @@ if user_input:
       million=round(value/1000000)
       return (str(million)+'M')
     if(value>=1000000000):
-      billion=round(value/1000000)
+      billion=round(value/1000000000)
       return (str(billion)+'B')
     
   st.markdown('### Metrics')
