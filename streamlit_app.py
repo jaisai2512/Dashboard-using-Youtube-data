@@ -75,7 +75,7 @@ if user_input:
   extra_date=whole_data['Publishedat']
   whole_data['Publishedat']=pd.to_datetime(whole_data['Publishedat'], format= '%Y/%m/%d')
 
-  st.dataframe(whole_data)
+  
   
   st.markdown('### Metrics')
   col1, col2, col3 = st.columns(3)
