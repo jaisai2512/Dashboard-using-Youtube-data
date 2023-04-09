@@ -81,7 +81,7 @@ if user_input:
   
   def million(value):
     if(value>=1000000 and value<1000000000):
-      million=round(value/1000000,1)
+      million=round(value/1000000)
       return (str(million)+'M')
   st.markdown('### Metrics')
   col1, col2, col3 = st.columns(3)
