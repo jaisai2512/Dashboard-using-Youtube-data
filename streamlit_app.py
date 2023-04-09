@@ -28,6 +28,9 @@ if user_input:
     data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'],viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads']))
   df=pd.DataFrame(data_dict)
   playlistId=df.iloc[0,5]
+  df['videoCount']=pd.to_numeric(df['videoCount'])
+  df['viewCount']=pd.to_numeric(df['viewCount'])
+  df['subcribers']=pd.to_numeric(df['subcribers'])
 
   def get_video_id(youtube,playlistId):
     request = youtube.playlistItems().list(part="contentDetails",playlistId=playlistId,maxResults=50)
@@ -76,10 +79,13 @@ if user_input:
   whole_data['Publishedat']=pd.to_datetime(whole_data['Publishedat'], format= '%Y/%m/%d')
 
   
-  
+  def million(value):
+    if(value>=1000000 and value<1000000000):
+      million=value/1000000 
+      return (str(million)+M)
   st.markdown('### Metrics')
   col1, col2, col3 = st.columns(3)
-  col1.metric("sdf", "70 °F")
+  col1.metric("Subcribers", million(df.iloc[0,2]))
   col2.metric("Wind", "9 mph")
   col3.metric("Total Videos",str(whole_data.shape[0]))
 
