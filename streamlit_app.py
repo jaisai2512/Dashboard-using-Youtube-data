@@ -77,5 +77,12 @@ if user_input:
 
   st.dataframe(whole_data)
   
+  st.markdown('### Metrics')
+  col1, col2, col3 = st.columns(3)
+  col1.metric("sdf", "70 °F")
+  col2.metric("Wind", "9 mph")
+  col3.metric("Total Videos",str(whole_data.shape[0]))
+
+  
 
 
