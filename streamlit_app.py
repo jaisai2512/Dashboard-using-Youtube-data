@@ -83,10 +83,14 @@ if user_input:
     if(value>=1000000 and value<1000000000):
       million=round(value/1000000)
       return (str(million)+'M')
+    if(value>=1000000000):
+      billion=round(value/1000000)
+      return (str(billion)+'B')
+    
   st.markdown('### Metrics')
   col1, col2, col3 = st.columns(3)
   col1.metric("Subcribers", million(df.iloc[0,2]))
-  col2.metric("Wind", "9 mph")
+  col2.metric("Total Views", million(df['viewCount'].sum()))
   col3.metric("Total Videos",str(whole_data.shape[0]))
 
   
