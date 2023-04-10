@@ -25,7 +25,7 @@ if user_input:
   data=get_channel_stats(youtube,user_input)
   data_dict=[]
   for i in data['items']:
-    data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] if 'viewCount' in i['statistics'] else 0 ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads']))
+    data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads']))
   df=pd.DataFrame(data_dict)
   playlistId=df.iloc[0,5]
   df['videoCount']=pd.to_numeric(df['videoCount'])
@@ -64,7 +64,7 @@ if user_input:
         request = youtube.videos().list(part="snippet,statistics,topicDetails",id=",".join(d[j:j+50]))
         response = request.execute()
         for i in response['items']:
-            data=dict(Tilte=i['snippet']['title'],Publishedat=i['snippet']['publishedAt'],Views=i['statistics']['viewCount'],like=i['statistics']['likeCount'] if 'likeCount' in i['statistics'] else 0 , comment=i['statistics']['commentCount'] if 'commentCount' in i['statistics'] else 0 , topic=i['topicDetails']['topicCategories'] if 'topicDetails' in i else None  )
+            data=dict(Tilte=i['snippet']['title'],Publishedat=i['snippet']['publishedAt'],Views=i['statistics']['viewCount'] if 'viewCount' in i['statistics'] else 0 ,like=i['statistics']['likeCount'] if 'likeCount' in i['statistics'] else 0 , comment=i['statistics']['commentCount'] if 'commentCount' in i['statistics'] else 0 , topic=i['topicDetails']['topicCategories'] if 'topicDetails' in i else None  )
             video_data.append(data)
     return video_data
 
