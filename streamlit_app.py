@@ -96,12 +96,16 @@ if user_input:
         return (str(round(billion))+'B')
       return (('{:.2f}'.format(billion))+'B')
     
+  top_10_videos=whole_data.head(20)
+  top_10_videos=top_10_videos.reset_index()
+  top_10_videos=top_10_videos.drop(['index'],axis=1)
+    
   st.markdown('### Channel Info')
-  col1, col2, col3 = st.columns(3)
+  col1, col2, col3,col4 = st.columns(4)
   col1.metric("Subcribers", million(df.iloc[0,2]))
   col2.metric("Total Views", million(df.iloc[0,4]))
   col3.metric("Total Videos",str(df.iloc[0,3]))
-  
+  col4.metric("Average Views",million(top_10_videos['like'].mean()))
   
 
 
