@@ -100,7 +100,7 @@ if user_input:
   col1, col2, col3 = st.columns(3)
   col1.metric("Subcribers", million(df.iloc[0,2]))
   col2.metric("Total Views", million(df['viewCount'].sum()))
-  col3.metric("Total Videos",str(df[df['videoCount']]))
+  col3.metric("Total Videos",str(df['videoCount']))
   
   
 
