@@ -94,7 +94,7 @@ if user_input:
       billion=value/1000000000
       if('.0' in str(billion)):
         return (str(round(billion))+'B')
-      return (('{:.2f}'.format(str(billion)))+'B')
+      return (('{:.2f}'.format(billion))+'B')
     
   st.markdown('### Channel Info')
   col1, col2, col3 = st.columns(3)
