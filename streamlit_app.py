@@ -105,7 +105,7 @@ if user_input:
   col1.metric("Subcribers", million(df.iloc[0,2]))
   col2.metric("Total Views", million(df.iloc[0,4]))
   col3.metric("Total Videos",str(df.iloc[0,3]))
-  col4.metric("Average Views",million(top_10_videos['like'].mean()))
+  col4.metric("Average likes",million(top_10_videos['like'].mean()))
   
 
 
