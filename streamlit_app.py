@@ -96,12 +96,12 @@ if user_input:
         return (str(round(billion))+'B')
       return (str(round(billion,1))+'B')
     
-  st.markdown('### Metrics')
+  st.markdown('### Channel Info')
   col1, col2, col3 = st.columns(3)
   col1.metric("Subcribers", million(df.iloc[0,2]))
   col2.metric("Total Views", million(df['viewCount'].sum()))
-  col3.metric("Total Videos",str(whole_data.shape[0]))
-
+  col3.metric("Total Videos",str(df[df['videoCount']]))
+  
   
 
 
