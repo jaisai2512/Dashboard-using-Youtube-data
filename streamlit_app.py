@@ -84,17 +84,17 @@ if user_input:
       k=value/1000
       if('.0' in str(k)):
         return (str(round(k))+'K')
-      return (str(round(k,1))+'K')
+      return (('{:.1f}'.format(k))+'K')
     if(value>=1000000 and value<1000000000):
       million=value/1000000
       if('.0' in str(million)):
         return (str(round(million))+'M')
-      return (str(round(million,1))+'M')
+      return (('{:.1f}'.format(million))+'M')
     if(value>=1000000000):
       billion=value/1000000000
       if('.0' in str(billion)):
         return (str(round(billion))+'B')
-      return (('{:.2f}'.format(billion))+'B')
+      return (('{:.1f}'.format(billion))+'B')
     
   st.markdown('### Channel Info')
   col1, col2, col3 = st.columns(3)
