@@ -99,7 +99,7 @@ if user_input:
   st.markdown('### Channel Info')
   col1, col2, col3 = st.columns(3)
   col1.metric("Subcribers", million(df.iloc[0,2]))
-  col2.metric("Total Views", million(df['viewCount'].sum()))
+  col2.metric("Total Views", million(df.iloc[0,4]))
   col3.metric("Total Videos",str(df.iloc[0,3]))
   
   
