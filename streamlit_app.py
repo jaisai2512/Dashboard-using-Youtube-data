@@ -88,8 +88,8 @@ if user_input:
     if(value>=1000000000):
       billion=value/1000000000
       if('.0' in str(billion)):
-        return (str(round(billion))+'M')
-      return (str(round(billion,1))+'M')
+        return (str(round(billion))+'B')
+      return (str(round(billion,1))+'B')
     
   st.markdown('### Metrics')
   col1, col2, col3 = st.columns(3)
