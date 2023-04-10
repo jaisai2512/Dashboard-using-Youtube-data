@@ -81,7 +81,7 @@ if user_input:
   
   def million(value):
     if(value<1000000 and value>=1000):
-      k=value/10000
+      k=value/1000
       if('.0' in str(k)):
         return (str(round(k))+'K')
       return (str(round(k,1))+'K')
