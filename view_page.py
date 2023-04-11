@@ -8,7 +8,7 @@ class Multiapp():
   def add_app(self,title,function):
     self.apps.append({'title':title,'function':function})
     
-   def run(self):
+  def run(self):
     app = st.selectbox(
            'Navigation',
            self.apps,
