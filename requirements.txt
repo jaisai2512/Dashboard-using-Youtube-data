@@ -1,4 +1,4 @@
-streamlit
+pip install --upgrade streamlit
 pandas
 plost
 plotly-express
