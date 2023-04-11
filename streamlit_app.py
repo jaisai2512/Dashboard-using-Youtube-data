@@ -115,8 +115,8 @@ if user_input:
   st.dataframe(top_10_videos)
   
   app= Multiapp()
-  app.add_app('View Analysis','View Analysis.app')
-  app.add_app('Income Analysis','Income Analysis.app')
+  app.add_app('View Analysis',View Analysis.app)
+  app.add_app('Income Analysis',Income Analysis.app)
   
   app.run()
   
