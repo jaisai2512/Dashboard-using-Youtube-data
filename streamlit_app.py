@@ -110,27 +110,3 @@ if user_input:
   st.dataframe(top_10_videos)
 
 
-# Define the pages
-def page1():
-    st.write("This is page 1.")
-    st.write("Click on the link below to go to page 2.")
-    st.markdown("[Go to page 2](/page2)")
-
-def page2():
-    st.write("This is page 2.")
-    st.write("Click on the link below to go back to page 1.")
-    st.markdown("[Go back to page 1](/page1)")
-
-# Define the app
-def app():
-    st.set_page_config(page_title="My Streamlit App")
-    page = st.experimental_get_query_params().get("page", ["page1"])[0]
-
-    if page == "page1":
-        page1()
-    elif page == "page2":
-        page2()
-
-# Run the app
-if __name__ == "__main__":
-    app()
