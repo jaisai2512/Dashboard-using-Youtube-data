@@ -6,9 +6,14 @@ class Multiapp():
     self.apps=[]
     
   def add_app(self,title,function):
-    self.apps.append({'title':title,'func':function})
+    self.apps.append({'title':title,'function':function})
     
-  def run(self):
-    app = st.sidebar.selectbox('Navigation',self.apps,format_func = lambda app : app['title'])
-    app['func']()
+   def run(self):
     
+        # app = st.sidebar.radio(
+    app = st.selectbox(
+           'Navigation',
+           self.apps,
+           format_func=lambda app: app['title'])
+
+    app['function']()
