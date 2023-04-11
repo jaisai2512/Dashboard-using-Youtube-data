@@ -2,7 +2,7 @@ from googleapiclient.discovery import build
 import pandas as pd
 import streamlit as st
 import googleapiclient.errors
-from view app import Multiapp
+from view page import Multiapp
 from App import View Analysis,Income Analysis
 
 
