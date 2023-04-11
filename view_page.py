@@ -9,11 +9,8 @@ class Multiapp():
     self.apps.append({'title':title,'function':function})
     
    def run(self):
-    
-        # app = st.sidebar.radio(
     app = st.selectbox(
            'Navigation',
            self.apps,
            format_func=lambda app: app['title'])
-
     app['function']()
