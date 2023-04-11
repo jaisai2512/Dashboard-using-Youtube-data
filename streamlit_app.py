@@ -2,8 +2,8 @@ from googleapiclient.discovery import build
 import pandas as pd
 import streamlit as st
 import googleapiclient.errors
-from view page import Multiapp
-from App import View Analysis,Income Analysis
+from view_page import Multiapp
+from App import View_Analysis,Income_Analysis
 
 
 st.set_page_config(page_title='Youtube Analysis',
