@@ -2,6 +2,8 @@ from googleapiclient.discovery import build
 import pandas as pd
 import streamlit as st
 import googleapiclient.errors
+from view app import Multiapp
+from App import View Analysis,Income Analysis
 
 
 st.set_page_config(page_title='Youtube Analysis',
@@ -112,6 +114,12 @@ if user_input:
   col4.metric("Average likes",million(top_10_videos['like'].mean()))
   st.dataframe(top_10_videos)
   
-  sidebar=st.sidebar.selectbox('Go to',('View Analysis','Income Analysis'))
+  app= Multiapp()
+  app.add_app('View Analysis','View Analysis.app')
+  app.add_app('Income Analysis','Income Analysis.app')
+  
+  app.run()
+  
+  
 
 
