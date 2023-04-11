@@ -108,5 +108,54 @@ if user_input:
   col3.metric("Total Videos",str(df.iloc[0,3]))
   col4.metric("Average likes",million(top_10_videos['like'].mean()))
   st.dataframe(top_10_videos)
+  import streamlit as st
+  from streamlit.report_thread import add_report_ctx
+  from streamlit.server.server import Server
 
+# Create a class to store the state of the application across pages
+  class MultiPage:
+    def __init__(self, pages):
+      self.pages = pages
+      self.state = {}
+
+    def run(self):
+      st.set_page_config(page_title="MultiPage App")
+      page = st.sidebar.selectbox("Select a page", self.pages.keys())
+      self.pages[page].write(self.state)
+
+    def get_state(self):
+      return self.state
+
+    def set_state(self, state):
+      self.state = state
+
+# Create the pages
+  class Page1:
+    
+    def __init__(self):
+      self.name = "Page 1"
+
+    def write(self, state):
+      st.write(self.name)
+      st.write("This is page 1")
+
+  class Page2:
+    def __init__(self):
+      self.name = "Page 2"
+
+    def write(self, state):
+      st.write(self.name)
+      st.write("This is page 2")
+
+# Define the pages
+  pages = {
+    "Page 1": Page1(),
+    "Page 2": Page2()
+  }
+
+# Initialize the MultiPage class
+  multi_page = MultiPage(pages)
+
+# Run the app
+  multi_page.run()
 
