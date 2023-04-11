@@ -109,6 +109,6 @@ if user_input:
   col4.metric("Average likes",million(top_10_videos['like'].mean()))
   st.dataframe(top_10_videos)
   
-  sidebar=st.sidebar.radio('Go to',('View Analysis','Income Analysis'))
+  sidebar=st.sidebar.selectbox('Go to',('View Analysis','Income Analysis'))
 
 
