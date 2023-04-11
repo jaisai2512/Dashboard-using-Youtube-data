@@ -3,4 +3,4 @@ pandas
 plost
 plotly-express
 google-api-python-client
---upgrade streamlit
+streamlit --upgrade
