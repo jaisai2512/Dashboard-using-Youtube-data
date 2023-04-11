@@ -115,7 +115,7 @@ if user_input:
   col4.metric("Average likes",million(top_10_videos['like'].mean()))
   st.dataframe(top_10_videos)
   fig = px.line(top_10_videos, x="Publishedat", y="Views", title='Views through time')
-  fig.show()
+  st.write(fig)
   
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
