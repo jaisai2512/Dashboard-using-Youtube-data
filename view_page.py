@@ -10,5 +10,5 @@ class Multiapp():
     
   def run(self):
     app = st.sidebar.selectbox('Navigation',self.apps,format_func = lambda app : app['title'])
-    app['function']()
+    app['func']()
     
