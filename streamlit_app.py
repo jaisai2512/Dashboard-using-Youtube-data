@@ -108,54 +108,36 @@ if user_input:
   col3.metric("Total Videos",str(df.iloc[0,3]))
   col4.metric("Average likes",million(top_10_videos['like'].mean()))
   st.dataframe(top_10_videos)
-  import streamlit as st
-  from streamlit.report_thread import add_report_ctx
-  from streamlit.server.server import Server
+from streamlit.hashing import _CodeHasher
 
-# Create a class to store the state of the application across pages
-  class MultiPage:
-    def __init__(self, pages):
-      self.pages = pages
-      self.state = {}
+# Create a SessionState object
+class SessionState:
+    def __init__(self, **kwargs):
+        self.hash_funcs = {_CodeHasher: lambda code: None}
+        self.__dict__.update(kwargs)
 
-    def run(self):
-      st.set_page_config(page_title="MultiPage App")
-      page = st.sidebar.selectbox("Select a page", self.pages.keys())
-      self.pages[page].write(self.state)
+# Define your different pages
+def page1(state):
+    st.write('This is page 1')
+    if st.button('Go to Page 2'):
+        state.page = 'page2'
 
-    def get_state(self):
-      return self.state
+def page2(state):
+    st.write('This is page 2')
+    if st.button('Go to Page 1'):
+        state.page = 'page1'
 
-    def set_state(self, state):
-      self.state = state
+# Define your main function that will display the pages
+def main():
+    state = SessionState(page='page1')
 
-# Create the pages
-  class Page1:
-    
-    def __init__(self):
-      self.name = "Page 1"
+    # Define a dropdown to select the page to display
+    pages = {'page1': page1, 'page2': page2}
+    page = st.sidebar.selectbox('Select a page', options=list(pages.keys()))
 
-    def write(self, state):
-      st.write(self.name)
-      st.write("This is page 1")
+    # Call the selected page function
+    pages[page](state)
 
-  class Page2:
-    def __init__(self):
-      self.name = "Page 2"
-
-    def write(self, state):
-      st.write(self.name)
-      st.write("This is page 2")
-
-# Define the pages
-  pages = {
-    "Page 1": Page1(),
-    "Page 2": Page2()
-  }
-
-# Initialize the MultiPage class
-  multi_page = MultiPage(pages)
-
-# Run the app
-  multi_page.run()
+if __name__ == '__main__':
+    main()
 
