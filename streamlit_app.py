@@ -27,6 +27,8 @@ if user_input:
   for i in data['items']:
     data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads']))
   df=pd.DataFrame(data_dict)
+  st.write(df.iloc[0,1])
+  st.write(df.iloc[0,0])
   st.dataframe(df)
   playlistId=df.iloc[0,5]
   df['videoCount']=pd.to_numeric(df['videoCount'])
