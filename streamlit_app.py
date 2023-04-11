@@ -114,8 +114,7 @@ if user_input:
   col3.metric("Total Videos",str(df.iloc[0,3]))
   col4.metric("Average likes",million(top_10_videos['like'].mean()))
   st.dataframe(top_10_videos)
-  df = px.top_10_videos.gapminder().query()
-  fig = px.line(df, x="Publishedat", y="Views", title='Views through time')
+  fig = px.line(top_10_videos, x="Publishedat", y="Views", title='Views through time')
   fig.show()
   
   app= Multiapp()
