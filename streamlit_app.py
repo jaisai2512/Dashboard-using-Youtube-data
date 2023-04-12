@@ -28,7 +28,7 @@ if user_input:
   data=get_channel_stats(youtube,user_input)
   data_dict=[]
   for i in data['items']:
-    data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads'],thumbnail=i['snippet']['thumbnails']['default']['url']))
+    data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads'],thumbnail=i['snippet']['thumbnails']['default']['url'],localized=i['localized']['country']))
   df=pd.DataFrame(data_dict)
   col5,col6,col7=st.columns(3)
   with col5:
@@ -112,11 +112,13 @@ if user_input:
   top_10_videos=top_10_videos.drop(['index'],axis=1)
     
   st.markdown('### Channel Info')
-  col1, col2, col3,col4 = st.columns(4)
+  col1, col2, col3= st.columns(3)
   col1.metric("Subcribers", million(df.iloc[0,2]))
   col2.metric("Total Views", million(df.iloc[0,4]))
   col3.metric("Total Videos",str(df.iloc[0,3]))
-  col4.metric("Average likes",million(top_10_videos['like'].mean()))
+  col8,col9,col1=st.columns(3)
+  col8.metric("Average likes",million(top_10_videos['like'].mean()))
+  col9.metric('Country',df.iloc[0,7])
   st.dataframe(top_10_videos)
   fig = px.line(top_10_videos, x="Publishedat", y="Views", title='Views through time')
   st.write(fig)
