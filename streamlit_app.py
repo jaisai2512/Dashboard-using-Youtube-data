@@ -34,7 +34,7 @@ if user_input:
   with col5:
     st.image(df.iloc[0,6],caption=None,width=250)
   with col6:
-    st.markdown(df.iloc[0,0])
+    st.markdown(###df.iloc[0,0])
   st.write(df.iloc[0,1])
   st.write(df.iloc[0,0])
   st.dataframe(df)
