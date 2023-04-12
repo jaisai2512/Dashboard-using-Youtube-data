@@ -11,7 +11,7 @@ st.set_page_config(page_title='Youtube Analysis',
                    page_icon=':bar_chart:',
                    layout='wide')
 
-st.sidebar.header('Input her')
+st.sidebar.header('Input here')
 user_input = st.sidebar.text_input("Enter the channel code:")
 
 
@@ -28,8 +28,9 @@ if user_input:
   data=get_channel_stats(youtube,user_input)
   data_dict=[]
   for i in data['items']:
-    data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads']))
+    data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads'],thumbnail=i['snippet']['thumbnails']))
   df=pd.DataFrame(data_dict)
+  st.image(df.iloc[0,6],caption=None,width=None,use_column_width=None,clamp=False,output_format='auto')
   st.write(df.iloc[0,0])
   st.write(df.iloc[0,1])
   st.write(df.iloc[0,0])
