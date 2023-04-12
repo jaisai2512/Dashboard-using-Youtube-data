@@ -34,7 +34,7 @@ if user_input:
   with col5:
     st.image(df.iloc[0,6],caption=None,width=200)
   with col6:
-    st.markdown(f'<p class="big-font">{df.iloc[0,0]}</p>', unsafe_allow_html=True)
+    st.markdown(f'<span style="font-size: 24px">{df.iloc[0,0]}</span>', unsafe_allow_html=True)
     st.write(df.iloc[0,0])
     with st.expander('Channel Description'):
       st.write(df.iloc[0,1])
