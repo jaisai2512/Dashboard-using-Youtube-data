@@ -38,7 +38,6 @@ if user_input:
     with st.expander('Channel Description'):
       st.write(df.iloc[0,1])
   
-  st.dataframe(df)
   playlistId=df.iloc[0,5]
   df['videoCount']=pd.to_numeric(df['videoCount'])
   df['viewCount']=pd.to_numeric(df['viewCount'])
