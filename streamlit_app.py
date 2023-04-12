@@ -32,10 +32,11 @@ if user_input:
   df=pd.DataFrame(data_dict)
   col5,col6=st.columns(2)
   with col5:
-    st.image(df.iloc[0,6],caption=None,width=250)
+    st.image(df.iloc[0,6],caption=None,width=200)
   with col6:
     st.markdown(df.iloc[0,0])
-    st.write(df.iloc[0,1])
+    with st.beta_expander("Click to minimize"):
+      st.write(df.iloc[0,1])
   
   st.dataframe(df)
   playlistId=df.iloc[0,5]
