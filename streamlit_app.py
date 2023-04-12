@@ -35,6 +35,8 @@ if user_input:
     st.image(df.iloc[0,6],caption=None,width=200)
   with col6:
     st.markdown(df.iloc[0,0])
+    txt=st.text_area(label=None, value=df.iloc[0,1], height=20, max_chars=100, key=None, help=None, on_change=None, args=None, kwargs=None, *, placeholder=None, disabled=False, label_visibility="visible")
+    st.write(txt)
     with st.beta_expander("Click to minimize"):
       st.write(df.iloc[0,1])
   
