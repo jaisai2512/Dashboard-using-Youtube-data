@@ -30,12 +30,11 @@ if user_input:
   for i in data['items']:
     data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads'],thumbnail=i['snippet']['thumbnails']['default']['url']))
   df=pd.DataFrame(data_dict)
-  col5,col6=st.columns(2)
+  col5,col6,col7=st.columns(3)
   with col5:
     st.image(df.iloc[0,6],caption=None,width=200)
   with col6:
     st.markdown(f'<span style="font-size: 24px">{df.iloc[0,0]}</span>', unsafe_allow_html=True)
-    st.write(df.iloc[0,0])
     with st.expander('Channel Description'):
       st.write(df.iloc[0,1])
   
