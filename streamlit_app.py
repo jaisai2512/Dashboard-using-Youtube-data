@@ -28,7 +28,7 @@ if user_input:
   data=get_channel_stats(youtube,user_input)
   data_dict=[]
   for i in data['items']:
-    data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads'],thumbnail=i['snippet']['thumbnails']['default']['url'],localized=i['country']))
+    data_dict.append(dict(Channel_Name=i['snippet']['title'],Description=i['snippet']['description'],subcribers=i['statistics']['subscriberCount'],videoCount=i['statistics']['videoCount'] ,viewCount=i['statistics']['viewCount'],uploads=i['contentDetails']['relatedPlaylists']['uploads'],thumbnail=i['snippet']['thumbnails']['default']['url'],localized=i['snippet']['country']))
   df=pd.DataFrame(data_dict)
   col5,col6,col7=st.columns(3)
   with col5:
