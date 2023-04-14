@@ -127,7 +127,6 @@ if user_input:
   col9.metric('Country',df.iloc[0,7])
   col10.metric('Yearly Revenue',million(round(average*0.2))+"-"+million(round(average*4.5)))
   st.dataframe(top_10_videos)
-  st.write(fig)
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
   app.add_app('Income Analysis',Income_Analysis.app)
