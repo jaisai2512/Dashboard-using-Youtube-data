@@ -127,7 +127,7 @@ if user_input:
   col9.metric('Country',df.iloc[0,7])
   col10.metric('Yearly Revenue',million(round(average*0.2))+"-"+million(round(average*4.5)))
   st.dataframe(top_10_videos)
-  plot = px.Figure()
+  plot = go.Figure()
   
   plot.add_trace(go.Scatter(
     name = 'Data 1',
