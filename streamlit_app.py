@@ -128,7 +128,7 @@ if user_input:
   col8.metric("Average likes",million(top_10_videos['like'].mean()))
   col9.metric('Country',df.iloc[0,7])
   col10.metric('Yearly Revenue',million(round(average*0.2))+"-"+million(round(average*4.5)))
-  st.dataframe(top_10_videos)
+  
   
 
   options = ["Views", "like", "comment"]
