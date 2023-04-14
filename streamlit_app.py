@@ -95,7 +95,7 @@ if user_input:
       k=value/1000
       if('.0' in str(k)):
         return (str(round(k))+'K')
-      return (('{:.1f}'.format(k))+'K')
+      return (('{:.2f}'.format(k))+'K')
     if(value>=1000000 and value<1000000000):
       million=value/1000000
       if('.0' in str(million)):
@@ -125,7 +125,7 @@ if user_input:
   average=(z['Views'].mean())/1000
   col8.metric("Average likes",million(top_10_videos['like'].mean()))
   col9.metric('Country',df.iloc[0,7])
-  col10.metric('Yearly Revenue',million(average*0.2)+"-"+million(average*4.5))
+  col10.metric('Yearly Revenue',million(round(average*0.2))+"-"+million(round(average*4.5))
   st.dataframe(top_10_videos)
   fig = px.line(top_10_videos, x="Publishedat", y="Views", title='Views through time')
   st.write(fig)
