@@ -169,6 +169,7 @@ if user_input:
     ))
     
   st.write(plot)
+  st.write(len(whole_data[whole_data['Tilte'].str.contains('shorts')==False]))
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
   app.add_app('Income Analysis',Income_Analysis.app)
