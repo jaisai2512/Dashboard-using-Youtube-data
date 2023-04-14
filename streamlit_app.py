@@ -95,7 +95,7 @@ if user_input:
       k=value/1000
       if('.0' in str(k)):
         return (str(round(k))+'K')
-      return (('{:.2f}'.format(k))+'K')
+      return (('{:.f}'.format(k))+'K')
     if(value>=1000000 and value<1000000000):
       million=value/1000000
       if('.0' in str(million)):
