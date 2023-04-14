@@ -144,7 +144,7 @@ if user_input:
       plot.add_trace(go.Scatter(
       name = 'Views',
       x = whole_data.iloc[0:19,1],
-      y = whole_data[0:19,2],
+      y = whole_data.iloc[0:19,2],
       text=names,
       hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
       stackgroup='one'
