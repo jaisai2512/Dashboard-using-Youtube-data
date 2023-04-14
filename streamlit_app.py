@@ -191,6 +191,12 @@ if user_input:
     stackgroup='one'
     ))
     st.write(plot)
+    
+  st.markdown('### All Time Favourites')
+  d=whole_data.sort_values(by=['Views'],ascending=False)
+  d=d.reset_index(inplace = False)
+  d= d.drop('index', axis=1)
+  st.dataframe(d.head(5))
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
   app.add_app('Income Analysis',Income_Analysis.app)
