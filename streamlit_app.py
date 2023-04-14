@@ -137,15 +137,18 @@ if user_input:
   names=whole_data['Tilte']
 # Display the selected option
   if(selected_option=="Views"):
-    plot = go.Figure()
-    plot.add_trace(go.Scatter(
-    name = 'Views',
-    x = whole_data['Publishedat'],
-    y = whole_data['Views'],
-    text=names,
-    hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
-    stackgroup='one'
-    ))
+    options=['20 Videos','30 Videos']
+    selectbox=st.selectbox('Select an option',options)
+    if(selectbox==options[0]):
+      plot = go.Figure()
+      plot.add_trace(go.Scatter(
+      name = 'Views',
+      x = whole_data.iloc[0:19,1],
+      y = whole_data[0:19,2],
+      text=names,
+      hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
+      stackgroup='one'
+      ))
   
   if(selected_option=="like"):
     plot = go.Figure()
