@@ -121,11 +121,11 @@ if user_input:
   whole_data['Month']=whole_data['Publishedat'].dt.month
   whole_data['Day']=whole_data['Publishedat'].dt.day
   z=whole_data.groupby('Year')['Views'].sum()
-  z.reset_index()
-  st.write(z['Views'])
+  z=z.reset_index()
+  average=(z['Views'].mean())/1000
   col8.metric("Average likes",million(top_10_videos['like'].mean()))
   col9.metric('Country',df.iloc[0,7])
-  
+  col10.metric('Yearly Revenue',million(average*0.2))
   st.dataframe(top_10_videos)
   fig = px.line(top_10_videos, x="Publishedat", y="Views", title='Views through time')
   st.write(fig)
