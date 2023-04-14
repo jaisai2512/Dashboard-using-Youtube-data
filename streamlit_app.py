@@ -108,6 +108,7 @@ if user_input:
         return (str(round(billion))+'B')
       return (('{:.2f}'.format(billion))+'B')
   whole_data=whole_data[whole_data['Tilte'].str.contains('shorts')==False]
+  whole_data=whole_data[whole_data['Tilte'].str.contains('short')==False]
   top_10_videos=whole_data.head(20)
   top_10_videos=top_10_videos.reset_index()
   top_10_videos=top_10_videos.drop(['index'],axis=1)
