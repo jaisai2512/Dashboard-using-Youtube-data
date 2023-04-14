@@ -128,43 +128,41 @@ if user_input:
   col9.metric('Country',df.iloc[0,7])
   col10.metric('Yearly Revenue',million(round(average*0.2))+"-"+million(round(average*4.5)))
   st.dataframe(top_10_videos)
-  import matplotlib.pyplot as plt
-
-  # Define data for the chart
-  x = whole_data['Publishedat']
-  y1 = whole_data['Views']
-  y2 = whole_data['like']
-  y3 = whole_data['comment']
- 
-  # Create the stacked area chart
-  fig, ax = plt.subplots()
-  ax.stackplot(x, y1, y2, y3, labels=['Series 1', 'Series 2', 'Series 3'])
-
-# Add titles and labels
-  plt.title('Stacked Area Chart')
-  plt.xlabel('X Axis Label')
-  plt.ylabel('Y Axis Label')
-
-# Add a legend
-  ax.legend(loc='upper left')
-  st.write(fig)
-# Show the chart
-  plot = go.Figure()
   
-  plot.add_trace(go.Scatter(
-    name = 'Data 1',
+
+  options = ["Views", "like", "comment"]
+
+# Create the select box using the st.selectbox() function
+  selected_option = st.selectbox("Select an option", options)
+
+# Display the selected option
+  if(selected_option=="Views"):
+    plot = go.Figure()
+    plot.add_trace(go.Scatter(
+    name = 'Views',
     x = whole_data['Publishedat'],
     y = whole_data['Views'],
     stackgroup='one'
-   ))
+    ))
   
-  plot.add_trace(go.Scatter(
-    name = 'Data 2',
+  if(selected_option=="like"):
+    plot = go.Figure()
+    plot.add_trace(go.Scatter(
+    name = 'like',
     x = whole_data['Publishedat'],
     y = whole_data['like'],
-    stackgroup='two'
-   )
-  )
+    stackgroup='one'
+    ))
+  
+  if(selected_option=="comment"):
+    plot = go.Figure()
+    plot.add_trace(go.Scatter(
+    name = 'comment',
+    x = whole_data['Publishedat'],
+    y = whole_data['comment'],
+    stackgroup='one'
+    ))
+    
   st.write(plot)
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
