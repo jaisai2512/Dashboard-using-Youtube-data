@@ -122,7 +122,7 @@ if user_input:
   whole_data['Day']=whole_data['Publishedat'].dt.day
   z=whole_data.groupby('Year')['Views'].sum()
   z.reset_index()
-  st.write(z['Views])
+  st.write(z['Views'])
   col8.metric("Average likes",million(top_10_videos['like'].mean()))
   col9.metric('Country',df.iloc[0,7])
   
