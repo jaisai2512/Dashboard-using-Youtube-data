@@ -196,7 +196,7 @@ if user_input:
   d=whole_data.sort_values(by=['Views'],ascending=False)
   d=d.reset_index(inplace = False)
   d= d.drop('index', axis=1)
-  st.dataframe(d.iloc[:6,[0,1,2,3,4])
+  st.dataframe(d.iloc[:6,[0,1,2,3,4]])
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
   app.add_app('Income Analysis',Income_Analysis.app)
