@@ -127,8 +127,8 @@ if user_input:
   col9.metric('Country',df.iloc[0,7])
   col10.metric('Yearly Revenue',million(round(average*0.2))+"-"+million(round(average*4.5)))
   st.dataframe(top_10_videos)
-  fig = px.line(z, x='Year', y="Views")
-  fig.update_xaxes(minor=dict(ticks="inside", showgrid=True))
+  fig = px.area(whole_data, x="Publishedat", y="count", color="nation",
+  pattern_shape="nation", pattern_shape_sequence=[".", "x", "+"])
   st.write(fig)
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
@@ -136,6 +136,20 @@ if user_input:
   
   app.run()
   
+ plot = px.Figure()
   
-
-
+ plot.add_trace(go.Scatter(
+    name = 'Data 1',
+    x = whole_data['Publishedat'],
+    y = whole_data['Views'],
+    stackgroup='one'
+   ))
+  
+ plot.add_trace(go.Scatter(
+    name = 'Data 2',
+    x = whole_data['Publishedat'],
+    y = whole_data['like'],
+    stackgroup='one'
+   )
+  )
+  st.write(plot)
