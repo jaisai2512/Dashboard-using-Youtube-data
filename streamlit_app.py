@@ -127,12 +127,6 @@ if user_input:
   col9.metric('Country',df.iloc[0,7])
   col10.metric('Yearly Revenue',million(round(average*0.2))+"-"+million(round(average*4.5)))
   st.dataframe(top_10_videos)
-  app= Multiapp()
-  app.add_app('View Analysis',View_Analysis.app)
-  app.add_app('Income Analysis',Income_Analysis.app)
-  
-  app.run()
-  
   plot = px.Figure()
   
   plot.add_trace(go.Scatter(
@@ -150,3 +144,10 @@ if user_input:
    )
   )
   st.write(plot)
+  app= Multiapp()
+  app.add_app('View Analysis',View_Analysis.app)
+  app.add_app('Income Analysis',Income_Analysis.app)
+  
+  app.run()
+  
+  
