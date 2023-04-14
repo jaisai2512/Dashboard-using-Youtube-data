@@ -150,6 +150,9 @@ if user_input:
       hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
       stackgroup='one'
       ))
+      dataframe=whole_data.iloc[0:20,:]
+      dataframe=whole_data.sort_values(by=['Views'],ascending=False)
+      st.dataframe(dataframe)
     if(selectbox==options[1]):
       plot = go.Figure()
       plot.add_trace(go.Scatter(
@@ -160,7 +163,9 @@ if user_input:
       hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
       stackgroup='one'
       ))
-  
+      dataframe=whole_data.iloc[0:30,:]
+      dataframe=whole_data.sort_values(by=['Views'],ascending=False)
+      st.dataframe(dataframe)
   if(selected_option=="like"):
     plot = go.Figure()
     plot.add_trace(go.Scatter(
