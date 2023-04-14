@@ -134,7 +134,7 @@ if user_input:
 
 # Create the select box using the st.selectbox() function
   selected_option = st.selectbox("Select an option", options)
-  names=whole_data['Title']
+  names=whole_data['Tilte']
 # Display the selected option
   if(selected_option=="Views"):
     plot = go.Figure()
