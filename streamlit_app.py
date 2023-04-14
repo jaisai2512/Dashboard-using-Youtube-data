@@ -125,7 +125,7 @@ if user_input:
   average=(z['Views'].mean())/1000
   col8.metric("Average likes",million(top_10_videos['like'].mean()))
   col9.metric('Country',df.iloc[0,7])
-  col10.metric('Yearly Revenue',million(average*0.2)+" - "+million(average*4.5))
+  col10.metric('Yearly Revenue',million(average*0.2)+"-"+million(average*4.5))
   st.dataframe(top_10_videos)
   fig = px.line(top_10_videos, x="Publishedat", y="Views", title='Views through time')
   st.write(fig)
