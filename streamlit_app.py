@@ -107,7 +107,7 @@ if user_input:
       if('.0' in str(billion)):
         return (str(round(billion))+'B')
       return (('{:.2f}'.format(billion))+'B')
-    
+  whole_data=whole_data[whole_data['Tilte'].str.contains('shorts')==False]
   top_10_videos=whole_data.head(20)
   top_10_videos=top_10_videos.reset_index()
   top_10_videos=top_10_videos.drop(['index'],axis=1)
@@ -169,7 +169,6 @@ if user_input:
     ))
     
   st.write(plot)
-  st.write(len(whole_data[whole_data['Tilte'].str.contains('shorts')==False]))
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
   app.add_app('Income Analysis',Income_Analysis.app)
