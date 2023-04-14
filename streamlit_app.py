@@ -163,8 +163,9 @@ if user_input:
       hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
       stackgroup='one'
       ))
-      dataframe=whole_data.iloc[0:30,:]
+      dataframe=whole_data.iloc[0:30,[0,1,2,3,4]]
       dataframe=dataframe.sort_values(by=['Views'],ascending=False)
+      dataframe=dataframe.reset_index()
       st.dataframe(dataframe)
   if(selected_option=="like"):
     plot = go.Figure()
