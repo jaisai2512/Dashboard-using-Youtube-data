@@ -150,8 +150,11 @@ if user_input:
       hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
       stackgroup='one'
       ))
-      dataframe=whole_data.iloc[0:20,:]
+      dataframe=whole_data.iloc[0:320,[0,1,2,3,4]]
       dataframe=dataframe.sort_values(by=['Views'],ascending=False)
+      dataframe=dataframe.reset_index(inplace = False)
+      dataframe = dataframe.drop('index', axis=1)
+      st.write(plot)
       st.dataframe(dataframe)
     if(selectbox==options[1]):
       plot = go.Figure()
@@ -167,6 +170,7 @@ if user_input:
       dataframe=dataframe.sort_values(by=['Views'],ascending=False)
       dataframe=dataframe.reset_index(inplace = False)
       dataframe = dataframe.drop('index', axis=1)
+      st.write(plot)
       st.dataframe(dataframe)
   if(selected_option=="like"):
     plot = go.Figure()
@@ -176,6 +180,7 @@ if user_input:
     y = whole_data['like'],
     stackgroup='one'
     ))
+    st.write(plot)
   
   if(selected_option=="comment"):
     plot = go.Figure()
@@ -185,8 +190,7 @@ if user_input:
     y = whole_data['comment'],
     stackgroup='one'
     ))
-    
-  st.write(plot)
+    st.write(plot)
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
   app.add_app('Income Analysis',Income_Analysis.app)
