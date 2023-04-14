@@ -136,16 +136,16 @@ if user_input:
   
   app.run()
   
- plot = px.Figure()
+  plot = px.Figure()
   
- plot.add_trace(go.Scatter(
+  plot.add_trace(go.Scatter(
     name = 'Data 1',
     x = whole_data['Publishedat'],
     y = whole_data['Views'],
     stackgroup='one'
    ))
   
- plot.add_trace(go.Scatter(
+  plot.add_trace(go.Scatter(
     name = 'Data 2',
     x = whole_data['Publishedat'],
     y = whole_data['like'],
