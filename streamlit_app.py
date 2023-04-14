@@ -144,8 +144,18 @@ if user_input:
       plot = go.Figure()
       plot.add_trace(go.Scatter(
       name = 'Views',
-      x = whole_data.iloc[0:19,1],
-      y = whole_data.iloc[0:19,2],
+      x = whole_data.iloc[0:20,1],
+      y = whole_data.iloc[0:20,2],
+      text=names,
+      hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
+      stackgroup='one'
+      ))
+    if(selectbox==options[1]):
+      plot = go.Figure()
+      plot.add_trace(go.Scatter(
+      name = 'Views',
+      x = whole_data.iloc[0:30,1],
+      y = whole_data.iloc[0:30,2],
       text=names,
       hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
       stackgroup='one'
