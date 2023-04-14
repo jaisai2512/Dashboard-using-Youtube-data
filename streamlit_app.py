@@ -129,7 +129,9 @@ if user_input:
   st.dataframe(top_10_videos)
   fig = px.line(top_10_videos, x="Publishedat", y="Views", title='Views through time')
   st.write(fig)
-  
+  fig = px.line(z, x='Year', y="Views")
+  fig.update_xaxes(minor=dict(ticks="inside", showgrid=True))
+  fig.show()
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
   app.add_app('Income Analysis',Income_Analysis.app)
