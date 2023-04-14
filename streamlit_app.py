@@ -141,7 +141,7 @@ if user_input:
     name = 'Data 2',
     x = whole_data['Publishedat'],
     y = whole_data['like'],
-    stackgroup='one'
+    stackgroup='two'
    )
   )
   st.write(plot)
