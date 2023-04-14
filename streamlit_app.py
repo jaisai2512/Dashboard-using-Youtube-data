@@ -143,7 +143,7 @@ if user_input:
     x = whole_data['Publishedat'],
     y = whole_data['Views'],
     text=names,
-    hovertemplate='<b>%{text}</b><br>x: %{x}<br>y: %{y}<extra></extra>'
+    hovertemplate='<b>%{text}</b><br>x: %{x}<br>y: %{y}<extra></extra>',
     stackgroup='one'
     ))
   
