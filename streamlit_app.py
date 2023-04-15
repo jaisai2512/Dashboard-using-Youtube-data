@@ -171,7 +171,7 @@ if user_input:
       dataframe=dataframe.reset_index(inplace = False)
       dataframe = dataframe.drop('index', axis=1)
       st.write(plot)
-      st.dataframe(dataframe)
+      st.dataframe(whole_data)
   if(selected_option=="like"):
     plot = go.Figure()
     plot.add_trace(go.Scatter(
