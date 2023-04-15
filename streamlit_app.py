@@ -150,7 +150,7 @@ if user_input:
       hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
       stackgroup='one'
       ))
-      dataframe=whole_data.iloc[0:320,[0,1,2,3,4]]
+      dataframe=whole_data.iloc[0:30,[0,1,2,3,4]]
       dataframe=dataframe.sort_values(by=['Views'],ascending=False)
       dataframe=dataframe.reset_index(inplace = False)
       dataframe = dataframe.drop('index', axis=1)
@@ -171,7 +171,7 @@ if user_input:
       dataframe=dataframe.reset_index(inplace = False)
       dataframe = dataframe.drop('index', axis=1)
       st.write(plot)
-      st.dataframe(whole_data)
+      st.dataframe(dataframe)
   if(selected_option=="like"):
     plot = go.Figure()
     plot.add_trace(go.Scatter(
