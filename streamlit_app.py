@@ -201,6 +201,5 @@ if user_input:
   app.add_app('View Analysis',View_Analysis.app)
   app.add_app('Income Analysis',Income_Analysis.app)
   
-  app.run()
   
   
