@@ -201,7 +201,7 @@ if user_input:
     stackgroup='one'
     ))
     st.write(plot)
-    
+  st.write(whole_data.shape)
   st.markdown('### All Time Favourites')
   d=whole_data.sort_values(by=['Views'],ascending=False)
   d=d.reset_index(inplace = False)
