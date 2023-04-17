@@ -4,3 +4,5 @@ plost
 plotly-express
 google-api-python-client
 matplotlib
+regex
+numpy
