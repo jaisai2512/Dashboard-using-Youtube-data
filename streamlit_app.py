@@ -140,7 +140,7 @@ if user_input:
   if(selected_option=="Views"):
     plot1=go.Figure()
     polt1.add_trace(go.Scatter(
-      name='Views,
+      name='Views',
       x=whole_data.iloc[:,1]
       y=whole_data.iloc[:,2]
       text=names,
