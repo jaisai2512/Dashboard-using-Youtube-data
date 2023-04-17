@@ -138,6 +138,15 @@ if user_input:
   names=whole_data['Tilte']
 # Display the selected option
   if(selected_option=="Views"):
+    plot1=go.Figure()
+    polt1.add_trace(go.Scatter(
+      name='Views,
+      x=whole_data.iloc[:,1]
+      y=whole_data.iloc[:,2]
+      text=names,
+      hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
+      stackgroup='one'
+    ))
     options=['20 Videos','30 Videos']
     selectbox=st.selectbox('Select an option',options)
     if(selectbox==options[0]):
