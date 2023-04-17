@@ -147,6 +147,7 @@ if user_input:
       hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Views: %{y}<extra></extra>',
       stackgroup='one'
     ))
+    st.write(plot)
     options=['20 Videos','30 Videos']
     selectbox=st.selectbox('Select an option',options)
     if(selectbox==options[0]):
