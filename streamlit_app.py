@@ -201,7 +201,18 @@ if user_input:
     stackgroup='one'
     ))
     st.write(plot)
-  st.write(whole_data.shape)
+  import numpy as np
+  import re
+  arr=np.array(whole_data['topic'])
+  l=[]
+  for x in arr:
+    if(x is not None):
+        l.append(x[0])
+    else:
+        l.append('NaN')
+  whole_data['Category']=l
+  whole_data['Category']=whole_data['Category'].str.extract('([$a-zA-Z0-9_\-\().]+$)')
+  st.dataframe(whole_data)
   st.markdown('### All Time Favourites')
   d=whole_data.sort_values(by=['Views'],ascending=False)
   d=d.reset_index(inplace = False)
