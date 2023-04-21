@@ -116,6 +116,7 @@ if user_input:
       if('.0' in str(billion)):
         return (str(round(billion))+'B')
       return (('{:.2f}'.format(billion))+'B')
+    return 's'
   whole_data=whole_data[whole_data['Tilte'].str.contains('shorts')==False]
   whole_data=whole_data[whole_data['Tilte'].str.contains('short')==False]
   top_10_videos=whole_data.head(20)
