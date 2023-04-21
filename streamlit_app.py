@@ -147,7 +147,7 @@ if user_input:
   options = ["Views", "like", "comment"]
 
 # Create the select box using the st.selectbox() function
-  selected_option = st.selectbox("Select an option", options)
+  selected_option = st.selectbox("Overall ", options)
   names=whole_data['Tilte']
 # Display the selected option
   if(selected_option=="Views"):
@@ -215,6 +215,16 @@ if user_input:
     stackgroup='one'
     ))
     st.write(plot)
+    a=whole_data.groupby('Category')['like'].sum().sort_values(ascending=False)
+    st.markdown('### Top three Category Based on Likes')
+    a=pd.DataFrame(a)
+    a=a.reset_index()
+    i=1
+    for j in a['Category']:
+      st.write(f'{i}. {j}')
+      i=i+1
+      if(i== 4):
+        break
   
   if(selected_option=="comment"):
     plot = go.Figure()
@@ -225,6 +235,16 @@ if user_input:
     stackgroup='one'
     ))
     st.write(plot)
+    a=whole_data.groupby('Category')['comment'].sum().sort_values(ascending=False)
+    st.markdown('### Top three Category Based on Comment')
+    a=pd.DataFrame(a)
+    a=a.reset_index()
+    i=1
+    for j in a['Category']:
+      st.write(f'{i}. {j}')
+      i=i+1
+      if(i== 4):
+        break
   
   st.markdown('### All Time Favourites')
   d=whole_data.sort_values(by=['Views'],ascending=False)
