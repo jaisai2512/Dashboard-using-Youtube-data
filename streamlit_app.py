@@ -141,10 +141,7 @@ if user_input:
   whole_data['Category']=l
   whole_data['Category']=whole_data['Category'].str.extract('([$a-zA-Z0-9_\-\().]+$)')
   st.dataframe(whole_data)
-  st.markdown('### All Time Favourites')
-  d=whole_data.sort_values(by=['Views'],ascending=False)
-  d=d.reset_index(inplace = False)
-  d= d.drop('index', axis=1)
+  
   
 
   options = ["Views", "like", "comment"]
@@ -228,6 +225,10 @@ if user_input:
     ))
     st.write(plot)
   
+  st.markdown('### All Time Favourites')
+  d=whole_data.sort_values(by=['Views'],ascending=False)
+  d=d.reset_index(inplace = False)
+  d= d.drop('index', axis=1)
   st.dataframe(d.iloc[:6,[0,1,2,3,4,9]])
   
   app= Multiapp()
