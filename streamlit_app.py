@@ -13,7 +13,7 @@ st.set_page_config(page_title='Youtube Analysis',
                    layout='wide')
 
 st.sidebar.header('Input here')
-user_input = st.sidebar.text_input("Enter the channel code:")
+user_input = st.sidebar.text_input("Enter the channel Handle  Name:")
 
 
 
