@@ -330,9 +330,7 @@ if user_input:
   d= d.drop('index', axis=1)
   st.dataframe(d.iloc[:6,[0,1,2,3,4,9]])
   
-  app= Multiapp()
-  app.add_app('View Analysis',View_Analysis.app)
-  app.add_app('Income Analysis',Income_Analysis.app)
+  
   
   
   
