@@ -228,7 +228,6 @@ if user_input:
       stackgroup='one'
       ))
       dataframe=whole_data.iloc[0:20,[0,1,2,3,4]]
-      dataframe=dataframe.sort_values(by=['like'],ascending=False)
       dataframe=dataframe.reset_index(inplace = False)
       dataframe = dataframe.drop('index', axis=1)
       st.write(plot)
@@ -244,7 +243,6 @@ if user_input:
       stackgroup='one'
       ))
       dataframe=whole_data.iloc[0:30,[0,1,2,3,4]]
-      dataframe=dataframe.sort_values(by=['like'],ascending=False)
       dataframe=dataframe.reset_index(inplace = False)
       dataframe = dataframe.drop('index', axis=1)
       st.write(plot)
@@ -269,6 +267,38 @@ if user_input:
     stackgroup='one'
     ))
     st.write(plot)
+    options=['Last 20 Videos','Last 30 Videos']
+    selectbox=st.selectbox('',options)
+    if(selectbox==options[0]):
+      plot = go.Figure()
+      plot.add_trace(go.Scatter(
+      name = 'like',
+      x = whole_data.iloc[0:20,1],
+      y = whole_data.iloc[0:20,4],
+      text=names,
+      hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Comments: %{y}<extra></extra>',
+      stackgroup='one'
+      ))
+      dataframe=whole_data.iloc[0:20,[0,1,2,3,4]]
+      dataframe=dataframe.reset_index(inplace = False)
+      dataframe = dataframe.drop('index', axis=1)
+      st.write(plot)
+      st.dataframe(dataframe)
+    if(selectbox==options[1]):
+      plot = go.Figure()
+      plot.add_trace(go.Scatter(
+      name = 'Comment',
+      x = whole_data.iloc[0:30,1],
+      y = whole_data.iloc[0:30,4],
+      text=names,
+      hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Comments %{y}<extra></extra>',
+      stackgroup='one'
+      ))
+      dataframe=whole_data.iloc[0:30,[0,1,2,3,4]]
+      dataframe=dataframe.reset_index(inplace = False)
+      dataframe = dataframe.drop('index', axis=1)
+      st.write(plot)
+      st.dataframe(dataframe)
     a=whole_data.groupby('Category')['comment'].sum().sort_values(ascending=False)
     st.markdown('### Top three Category Based on Comment')
     a=pd.DataFrame(a)
