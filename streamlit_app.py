@@ -182,6 +182,15 @@ if user_input:
       dataframe = dataframe.drop('index', axis=1)
       st.write(plot)
       st.dataframe(dataframe)
+      a=whole_data.groupby('Category')['Views'].sum().sort_values(ascending=False)
+      st.markdown('### Top three Category Based on Views')
+      a=a.reset_index()
+      i=1
+      for j in a['Category']:
+        st.write(f'{i}. {j}')
+        i=i+1
+        if(i== 4):
+          break
   if(selected_option=="like"):
     plot = go.Figure()
     plot.add_trace(go.Scatter(
@@ -218,6 +227,7 @@ if user_input:
   d=d.reset_index(inplace = False)
   d= d.drop('index', axis=1)
   st.dataframe(d.iloc[:6,[0,1,2,3,4,9]])
+  
   app= Multiapp()
   app.add_app('View Analysis',View_Analysis.app)
   app.add_app('Income Analysis',Income_Analysis.app)
