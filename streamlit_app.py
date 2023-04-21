@@ -195,16 +195,17 @@ if user_input:
       dataframe = dataframe.drop('index', axis=1)
       st.write(plot)
       st.dataframe(dataframe)
-      a=whole_data.groupby('Category')['Views'].sum().sort_values(ascending=False)
-      st.markdown('### Top three Category Based on Views')
-      a=pd.DataFrame(a)
-      a=a.reset_index()
-      i=1
-      for j in a['Category']:
-        st.write(f'{i}. {j}')
-        i=i+1
-        if(i== 4):
-          break
+     a=whole_data.groupby('Category')['Views'].sum().sort_values(ascending=False)
+     st.markdown('### Top three Category Based on Views')
+     a=pd.DataFrame(a)
+     a=a.reset_index()
+     i=1
+     for j in a['Category']:
+       st.write(f'{i}. {j}')
+       i=i+1
+       if(i== 4):
+         break
+          
   if(selected_option=="like"):
     plot = go.Figure()
     plot.add_trace(go.Scatter(
