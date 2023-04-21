@@ -174,7 +174,6 @@ if user_input:
       stackgroup='one'
       ))
       dataframe=whole_data.iloc[0:20,[0,1,2,3,4]]
-      dataframe=dataframe.sort_values(by=['Views'],ascending=False)
       dataframe=dataframe.reset_index(inplace = False)
       dataframe = dataframe.drop('index', axis=1)
       st.write(plot)
@@ -190,7 +189,6 @@ if user_input:
       stackgroup='one'
       ))
       dataframe=whole_data.iloc[0:30,[0,1,2,3,4]]
-      dataframe=dataframe.sort_values(by=['Views'],ascending=False)
       dataframe=dataframe.reset_index(inplace = False)
       dataframe = dataframe.drop('index', axis=1)
       st.write(plot)
@@ -212,6 +210,8 @@ if user_input:
     name = 'like',
     x = whole_data['Publishedat'],
     y = whole_data['like'],
+    text=names,
+    hovertemplate='<b>%{text}</b><br>Date: %{x}<br>Likes: %{y}<extra></extra>',
     stackgroup='one'
     ))
     st.write(plot)
