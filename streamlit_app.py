@@ -102,7 +102,7 @@ if user_input:
   
   def million(value):
     if(value <1000):
-      if('.0' in str(k)):
+      if('.0' in str(value)):
         return (str(round(value)))
       return (('{:.2f}'.format(value)))
     if(value<1000000 and value>=1000):
