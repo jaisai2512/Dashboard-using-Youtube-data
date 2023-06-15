@@ -95,7 +95,7 @@ if user_input:
   whole_data['like']=pd.to_numeric(whole_data['like'])
   whole_data['comment']=pd.to_numeric(whole_data['comment'])
   extra_date=whole_data['Publishedat']
-  whole_data['Publishedat']=whole_data['Publishedat'].apply(pd.to_datetime, format='%Y/%m/%d')
+  whole_data['Publishedat']=whole_data['Publishedat'].apply(pd.to_datetime, format='%m/%d/%Y')
 
   
   def million(value):
