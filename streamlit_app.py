@@ -95,12 +95,12 @@ if user_input:
   whole_data['like']=pd.to_numeric(whole_data['like'])
   whole_data['comment']=pd.to_numeric(whole_data['comment'])
   extra_date=whole_data['Publishedat']
-  whole_data['Publishedat']=whole_data['Publishedat'].apply(pd.to_datetime, format='%m/%d/%Y')
+  whole_data['Publishedat']=pd.to_datetime(whole_data['Publishedat'], format= '%Y/%m/%d')
 
   
   def million(value):
     if(value <1000):
-      if('.0' in str(value)):
+      if('.0' in str(value)):-
         return (str(round(value)))
       return (('{:.2f}'.format(value)))
     if(value<1000000 and value>=1000):
