@@ -3,7 +3,6 @@ import plotly.graph_objects as go
 import pandas as pd
 import streamlit as st
 import googleapiclient.errors
-from App import View_Analysis,Income_Analysis
 import plotly.express as px
 
 
