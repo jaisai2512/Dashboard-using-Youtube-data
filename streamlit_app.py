@@ -152,7 +152,7 @@ if user_input:
         l.append('NaN')
   whole_data['Category']=l
   whole_data['Category']=whole_data['Category'].str.extract('([$a-zA-Z0-9_\-\().]+$)')
-  st.dataframe(whole_data)
+  
   
   
 
